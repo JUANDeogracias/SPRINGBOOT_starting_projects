@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ClientController {
 
     private final ClientService clientService;
@@ -36,5 +37,10 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public void deleteClient(@PathVariable Long id) {
         clientService.deleteClient(id);
+    }
+
+    @GetMapping("/name/{id}")
+    public String getClientByName(@PathVariable Long id) {
+        return clientService.getClientName(id);
     }
 }

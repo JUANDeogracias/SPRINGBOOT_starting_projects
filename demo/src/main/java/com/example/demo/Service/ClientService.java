@@ -8,4 +8,5 @@ public interface ClientService {
     Client saveClient(Client client);
     void deleteClient(Long id);
     Client getClient(Long id);
+    String getClientName(Long id);
 }

@@ -4,6 +4,7 @@ import com.example.demo.Client.Client;
 import com.example.demo.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.stream.Collector;
 
 import java.util.List;
 
@@ -35,5 +36,11 @@ public class ClientServiceImp implements ClientService {
     @Override
     public Client getClient(Long id) {
         return clientRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public String getClientName(Long id){
+        return clientRepository.findById(id)
+                .map(Client::getName).orElse(null);
     }
 }
